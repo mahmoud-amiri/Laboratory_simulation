@@ -3,9 +3,12 @@ import json
 import sys
 import os
 import cv2
+from math import ceil
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '../submodules'))
 from submodules.socket.python.client import Client
+
+CHUNK_SIZE = 1024  # Size of each chunk in bytes
 
 class VideoPatternGeneratorClient:
     def __init__(self, client):
@@ -73,7 +76,7 @@ class VideoPatternGeneratorClient:
                 speed = config["speed"]
                 self.generate_moving_box(name, width, height, box_size, speed, duration, frame_rate)
         print("Configuration complete")
-        self.client.send_data({"config":"OK"})  # Send acknowledgment after processing the configuration
+        self.client.send_data({"config": "OK"})  # Send acknowledgment after processing the configuration
         print("I have sent the configuration ack")
 
     def get_frame(self, name):
@@ -82,6 +85,13 @@ class VideoPatternGeneratorClient:
             self.indices[name] += 1
             return frame
         return None
+
+    def send_large_data(self, data):
+        serialized_data = json.dumps(data)
+        num_chunks = ceil(len(serialized_data) / CHUNK_SIZE)
+        for i in range(num_chunks):
+            chunk = serialized_data[i * CHUNK_SIZE:(i + 1) * CHUNK_SIZE]
+            self.client.send_data({"chunk": chunk, "index": i, "total": num_chunks})
 
     def communicate(self):
         try:
@@ -97,7 +107,7 @@ class VideoPatternGeneratorClient:
                             name = request["name"]
                             frame = self.get_frame(name)
                             response = {"frame": frame.tolist() if frame is not None else None}
-                            self.client.send_data(response)
+                            self.send_large_data(response)
                         elif request["command"] == "STOP":
                             break
         except Exception as e:
