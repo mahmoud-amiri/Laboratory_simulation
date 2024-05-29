@@ -1,14 +1,19 @@
 // top.sv
+import server_pkg::*;
 module top;
 
     // Instantiate the servers
-    Server server_gen = new(5000); // example port numbers
-    Server server_analyzer = new(6000);
+    Server server_gen;
+    Server server_analyzer;
+    Communication comm;
 
-    // Instantiate the communication handler
-    Communication comm = new(server_gen, server_analyzer);
+   
 
     initial begin
+        // Initialize servers
+        server_gen = new(5000); // example port numbers
+        server_analyzer = new(6000);
+        comm = new(server_gen, server_analyzer);
         // Start servers
         server_gen.start();
         server_analyzer.start();

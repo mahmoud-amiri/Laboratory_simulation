@@ -1,0 +1,190 @@
+m255
+K4
+z2
+!s11f vlog 2021.1 2021.01, Jan 19 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/GitHub/Laboratory_simulation
+XCommunication_sv_unit
+Z1 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+DXx4 work 10 server_pkg 0 22 P0DkJN_l7A2;g`<[]Zglc3
+!s110 1717007670
+VAUOFhO`Q`ZD2:CE[O]I[W3
+r1
+!s85 0
+!i10b 1
+!s100 CS>e]Cbh>:oV0?3SWQL4_3
+IAUOFhO`Q`ZD2:CE[O]I[W3
+!i103 1
+S1
+R0
+w1717007462
+8./dpi/Communication.sv
+F./dpi/Communication.sv
+!i122 44
+Z2 L0 2 0
+Z3 OL;L;2021.1;73
+31
+!s108 1717007670.000000
+!s107 ./dpi/Communication.sv|
+!s90 -reportprogress|300|-sv|./dpi/Communication.sv|
+!i113 0
+Z4 o-sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z5 tCvgOpt 0
+n@communication_sv_unit
+Xpattern_gen_analyzer_exampel_sv_unit
+R1
+Z6 DXx4 work 10 server_pkg 0 22 aYiSPH7Mj_;_dM>2oAled3
+Z7 !s110 1717008821
+VM:_H4Lb=21Y`Oj<P[V[S?3
+r1
+!s85 0
+!i10b 1
+!s100 dGheXYOUO5CG[F0Xo_=na0
+IM:_H4Lb=21Y`Oj<P[V[S?3
+!i103 1
+S1
+R0
+Z8 w1717007667
+Z9 8./pattern_gen_analyzer_exampel.sv
+Z10 F./pattern_gen_analyzer_exampel.sv
+!i122 49
+R2
+R3
+31
+Z11 !s108 1717008821.000000
+!s107 ./pattern_gen_analyzer_exampel.sv|
+Z12 !s90 -reportprogress|300|-sv|./pattern_gen_analyzer_exampel.sv|
+!i113 0
+R4
+R5
+Yserver_dpi_if
+R1
+R7
+!i10b 1
+!s100 e3<I6kLF7S?ooPJ=03F8a3
+IagD4zTTFEMe68=mPOJlM>3
+S1
+R0
+w1717006149
+8./dpi/server_dpi_interface.sv
+F./dpi/server_dpi_interface.sv
+!i122 46
+L0 3 0
+Z13 VDg1SIo80bB@j0V0VzS_@n1
+R3
+r1
+!s85 0
+31
+R11
+!s107 ./dpi/server_dpi_interface.sv|
+!s90 -reportprogress|300|-sv|./dpi/server_dpi_interface.sv|
+!i113 0
+R4
+R5
+Xserver_dpi_sv_unit
+R1
+R7
+VVhJ<2XMefagUf^O@dYRL72
+r1
+!s85 0
+!i10b 1
+!s100 SLJ2[_C@;Y[T@QRgYB^HG2
+IVhJ<2XMefagUf^O@dYRL72
+!i103 1
+S1
+R0
+w1717004241
+8./dpi/server_dpi.sv
+F./dpi/server_dpi.sv
+!i122 48
+R2
+R3
+31
+R11
+!s107 ./dpi/server_dpi.sv|
+!s90 -reportprogress|300|-sv|./dpi/server_dpi.sv|
+!i113 0
+R4
+R5
+Xserver_pkg
+R1
+R7
+!i10b 1
+!s100 ;1Q6i^Y78CZe[gXlJZ]l?3
+IaYiSPH7Mj_;_dM>2oAled3
+S1
+R0
+w1717008797
+8./dpi/server_pkg.sv
+F./dpi/server_pkg.sv
+!i122 47
+L0 1 0
+VaYiSPH7Mj_;_dM>2oAled3
+R3
+r1
+!s85 0
+31
+R11
+!s107 ./dpi/server_pkg.sv|
+!s90 -reportprogress|300|-sv|./dpi/server_pkg.sv|
+!i113 0
+R4
+R5
+XServer_sv_unit
+R1
+!s110 1717005283
+VEFeKdEIfXoN4]YT;EXM?12
+r1
+!s85 0
+!i10b 1
+!s100 d`SWDYmEREbKOHm;f4f0=2
+IEFeKdEIfXoN4]YT;EXM?12
+!i103 1
+S1
+R0
+w1717004342
+8./dpi/Server.sv
+F./dpi/Server.sv
+!i122 7
+R2
+R3
+31
+!s108 1717005283.000000
+!s107 ./dpi/Server.sv|
+!s90 -reportprogress|300|-sv|./dpi/Server.sv|
+!i113 0
+R4
+R5
+n@server_sv_unit
+vtop
+R1
+R6
+DXx4 work 36 pattern_gen_analyzer_exampel_sv_unit 0 22 M:_H4Lb=21Y`Oj<P[V[S?3
+R7
+R13
+r1
+!s85 0
+!i10b 1
+!s100 zSEmI]GFAl`C]Q_B@=[[S2
+I0<zimN?8hB73^YDF;]`?S0
+!s105 pattern_gen_analyzer_exampel_sv_unit
+S1
+R0
+R8
+R9
+R10
+!i122 49
+L0 3 31
+R3
+31
+R11
+Z14 !s107 ./pattern_gen_analyzer_exampel.sv|
+R12
+!i113 0
+R4
+R5

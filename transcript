@@ -1,0 +1,751 @@
+# //  Questa Sim-64
+# //  Version 2021.1 win64 Jan 19 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do compile.do
+# work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work work 
+# Modifying modelsim.ini
+# ./dpi
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 19:52:54 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi.sv 
+# -- Compiling package server_dpi_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:52:54 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 19:52:54 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/Server.sv 
+# -- Compiling package Server_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:52:54 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 19:52:54 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/Communication.sv 
+# ** Error: ./dpi/Communication.sv(2): (vlog-13006) Could not find the package (Server).  Design read will continue, but expect a cascade of errors after this failure.  Furthermore if you experience a vopt-7 error immediately before this error then please check the package names or the library search paths on the command line.
+# ** Error: (vlog-13069) ./dpi/Communication.sv(3): near "class": syntax error, unexpected class, expecting ';' or ','.
+# ** Error: ./dpi/Communication.sv(4): (vlog-13205) Syntax error found in the scope following 'Server'. Is there a missing '::'?
+# End time: 19:52:54 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+# ** Error: C:/questasim64_2021.1/win64/vlog failed.
+# Error in macro ./compile.do line 16
+# C:/questasim64_2021.1/win64/vlog failed.
+#     while executing
+# "vlog -sv $srcdir/Communication.sv"
+do compile.do
+# work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work work 
+# Modifying modelsim.ini
+# ./dpi
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 19:54:43 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi.sv 
+# -- Compiling package server_dpi_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:54:43 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 19:54:43 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/Server.sv 
+# -- Compiling package Server_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:54:43 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 19:54:43 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/Communication.sv 
+# ** Error: ./dpi/Communication.sv(4): Invalid type 'Server'. Please check the type of the variable 'server_gen'.
+# ** Error: ./dpi/Communication.sv(5): Invalid type 'Server'. Please check the type of the variable 'server_analyzer'.
+# ** Error: ./dpi/Communication.sv(8): (vlog-2400) Identifier ('Server') found where a type or type identifier is required.
+# End time: 19:54:43 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+# ** Error: C:/questasim64_2021.1/win64/vlog failed.
+# Error in macro ./compile.do line 16
+# C:/questasim64_2021.1/win64/vlog failed.
+#     while executing
+# "vlog -sv $srcdir/Communication.sv"
+do compile.do
+# work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work work 
+# Modifying modelsim.ini
+# ./dpi
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:04:06 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_pkg.sv 
+# -- Compiling package server_pkg
+# ** Error (suppressible): ./dpi/server_pkg.sv(12): (vlog-7027) The name ('start_server') was not found in the current scope.  Please verify the spelling of the name 'start_server'.
+# ** Error (suppressible): ./dpi/server_pkg.sv(17): (vlog-7027) The name ('stop_server') was not found in the current scope.  Please verify the spelling of the name 'stop_server'.
+# ** Error (suppressible): ./dpi/server_pkg.sv(22): (vlog-7027) The name ('send_data') was not found in the current scope.  Please verify the spelling of the name 'send_data'.
+# ** Error (suppressible): ./dpi/server_pkg.sv(26): (vlog-7027) The name ('receive_data') was not found in the current scope.  Please verify the spelling of the name 'receive_data'.
+# End time: 20:04:06 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 0
+# ** Error: C:/questasim64_2021.1/win64/vlog failed.
+# Error in macro ./compile.do line 14
+# C:/questasim64_2021.1/win64/vlog failed.
+#     while executing
+# "vlog -sv $srcdir/server_pkg.sv"
+do compile.do
+# work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work work 
+# Modifying modelsim.ini
+# ./dpi
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:10:07 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi_interface.sv 
+# -- Compiling interface server_dpi_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:10:07 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:10:07 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_pkg.sv 
+# -- Compiling package server_pkg
+# ** Error: ./dpi/server_pkg.sv(3): (vlog-13006) Could not find the package (server_dpi_if).  Design read will continue, but expect a cascade of errors after this failure.  Furthermore if you experience a vopt-7 error immediately before this error then please check the package names or the library search paths on the command line.
+# End time: 20:10:07 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/questasim64_2021.1/win64/vlog failed.
+# Error in macro ./compile.do line 17
+# C:/questasim64_2021.1/win64/vlog failed.
+#     while executing
+# "vlog -sv $srcdir/server_pkg.sv"
+do compile.do
+# work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work work 
+# Modifying modelsim.ini
+# ./dpi
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:12:21 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi_interface.sv 
+# -- Compiling interface server_dpi_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:12:21 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:12:21 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_pkg.sv 
+# -- Compiling package server_pkg
+# ** Error: (vlog-13069) ** while parsing file included at ./dpi/server_pkg.sv(3)
+# ** at ./dpi/server_dpi_interface.sv(3): near "server_dpi_if": syntax error, unexpected IDENTIFIER, expecting class.
+# End time: 20:12:21 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/questasim64_2021.1/win64/vlog failed.
+# Error in macro ./compile.do line 17
+# C:/questasim64_2021.1/win64/vlog failed.
+#     while executing
+# "vlog -sv $srcdir/server_pkg.sv"
+do compile.do
+# work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work work 
+# Modifying modelsim.ini
+# ./dpi
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:13:58 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi_interface.sv 
+# -- Compiling interface server_dpi_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:13:58 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:13:58 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_pkg.sv 
+# -- Compiling interface server_dpi_if
+# -- Compiling package server_pkg
+# ** Error (suppressible): ./dpi/server_pkg.sv(15): (vlog-7027) The name ('start_server') was not found in the current scope.  Please verify the spelling of the name 'start_server'.
+# ** Error (suppressible): ./dpi/server_pkg.sv(20): (vlog-7027) The name ('stop_server') was not found in the current scope.  Please verify the spelling of the name 'stop_server'.
+# ** Error (suppressible): ./dpi/server_pkg.sv(25): (vlog-7027) The name ('send_data') was not found in the current scope.  Please verify the spelling of the name 'send_data'.
+# ** Error (suppressible): ./dpi/server_pkg.sv(29): (vlog-7027) The name ('receive_data') was not found in the current scope.  Please verify the spelling of the name 'receive_data'.
+# End time: 20:13:58 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 0
+# ** Error: C:/questasim64_2021.1/win64/vlog failed.
+# Error in macro ./compile.do line 17
+# C:/questasim64_2021.1/win64/vlog failed.
+#     while executing
+# "vlog -sv $srcdir/server_pkg.sv"
+do compile.do
+# work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work work 
+# Modifying modelsim.ini
+# ./dpi
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:14:41 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi_interface.sv 
+# -- Compiling interface server_dpi_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:14:41 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:14:41 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_pkg.sv 
+# -- Compiling package server_pkg
+# ** Error: (vlog-13069) ** while parsing file included at ./dpi/server_pkg.sv(2)
+# ** at ./dpi/server_dpi_interface.sv(3): near "server_dpi_if": syntax error, unexpected IDENTIFIER, expecting class.
+# End time: 20:14:41 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/questasim64_2021.1/win64/vlog failed.
+# Error in macro ./compile.do line 17
+# C:/questasim64_2021.1/win64/vlog failed.
+#     while executing
+# "vlog -sv $srcdir/server_pkg.sv"
+do compile.do
+# work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work work 
+# Modifying modelsim.ini
+# ./dpi
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:16:39 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi_interface.sv 
+# -- Compiling interface server_dpi_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:16:39 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:16:39 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_pkg.sv 
+# -- Compiling package server_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:16:39 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:16:39 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi.sv 
+# -- Compiling package server_dpi_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:16:39 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:16:39 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/Communication.sv 
+# ** Error: ./dpi/Communication.sv(41): Illegal declaration after the statement near line '37'.  Declarations must precede statements.  Look for stray semicolons.
+# End time: 20:16:39 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/questasim64_2021.1/win64/vlog failed.
+# Error in macro ./compile.do line 21
+# C:/questasim64_2021.1/win64/vlog failed.
+#     while executing
+# "vlog -sv $srcdir/Communication.sv"
+do compile.do
+# work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work work 
+# Modifying modelsim.ini
+# ./dpi
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:27:24 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi_interface.sv 
+# -- Compiling interface server_dpi_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:27:24 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:27:24 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_pkg.sv 
+# -- Compiling package server_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:27:24 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:27:24 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi.sv 
+# -- Compiling package server_dpi_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:27:24 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:27:24 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/Communication.sv 
+# ** Error: (vlog-13069) ./dpi/Communication.sv(41): near "server_analyzer": syntax error, unexpected IDENTIFIER, expecting ';' or ','.
+# ** Error: ./dpi/Communication.sv(42): Illegal declaration after the statement near line '37'.  Declarations must precede statements.  Look for stray semicolons.
+# End time: 20:27:24 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# ** Error: C:/questasim64_2021.1/win64/vlog failed.
+# Error in macro ./compile.do line 21
+# C:/questasim64_2021.1/win64/vlog failed.
+#     while executing
+# "vlog -sv $srcdir/Communication.sv"
+do compile.do
+# work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work work 
+# Modifying modelsim.ini
+# ./dpi
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:27:49 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi_interface.sv 
+# -- Compiling interface server_dpi_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:27:49 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:27:50 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_pkg.sv 
+# -- Compiling package server_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:27:50 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:27:50 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi.sv 
+# -- Compiling package server_dpi_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:27:50 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:27:50 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/Communication.sv 
+# ** Error: ./dpi/Communication.sv(41): Illegal declaration after the statement near line '37'.  Declarations must precede statements.  Look for stray semicolons.
+# End time: 20:27:50 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/questasim64_2021.1/win64/vlog failed.
+# Error in macro ./compile.do line 21
+# C:/questasim64_2021.1/win64/vlog failed.
+#     while executing
+# "vlog -sv $srcdir/Communication.sv"
+do compile.do
+# work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work work 
+# Modifying modelsim.ini
+# ./dpi
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:29:33 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi_interface.sv 
+# -- Compiling interface server_dpi_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:29:33 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:29:33 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_pkg.sv 
+# -- Compiling package server_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:29:33 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:29:33 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi.sv 
+# -- Compiling package server_dpi_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:29:33 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:29:33 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/Communication.sv 
+# ** Error: ./dpi/Communication.sv(41): Illegal declaration after the statement near line '37'.  Declarations must precede statements.  Look for stray semicolons.
+# End time: 20:29:34 on May 29,2024, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# ** Error: C:/questasim64_2021.1/win64/vlog failed.
+# Error in macro ./compile.do line 21
+# C:/questasim64_2021.1/win64/vlog failed.
+#     while executing
+# "vlog -sv $srcdir/Communication.sv"
+do compile.do
+# work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work work 
+# Modifying modelsim.ini
+# ./dpi
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:30:45 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi_interface.sv 
+# -- Compiling interface server_dpi_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:30:45 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:30:46 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_pkg.sv 
+# -- Compiling package server_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:30:46 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:30:46 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi.sv 
+# -- Compiling package server_dpi_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:30:46 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:30:46 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/Communication.sv 
+# -- Compiling package Communication_sv_unit
+# -- Importing package server_pkg
+# ** Error: ./dpi/Communication.sv(41): (vlog-2990) Illegal operation on unpacked type.
+# End time: 20:30:46 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/questasim64_2021.1/win64/vlog failed.
+# Error in macro ./compile.do line 21
+# C:/questasim64_2021.1/win64/vlog failed.
+#     while executing
+# "vlog -sv $srcdir/Communication.sv"
+do compile.do
+# work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work work 
+# Modifying modelsim.ini
+# ./dpi
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:31:04 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi_interface.sv 
+# -- Compiling interface server_dpi_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:31:05 on May 29,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:31:05 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_pkg.sv 
+# -- Compiling package server_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:31:05 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:31:05 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi.sv 
+# -- Compiling package server_dpi_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:31:05 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:31:05 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/Communication.sv 
+# -- Compiling package Communication_sv_unit
+# -- Importing package server_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:31:05 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Error: can't read "pattern_gen_analyzer_exampel": no such variable
+# Error in macro ./compile.do line 22
+# can't read "pattern_gen_analyzer_exampel": no such variable
+#     while executing
+# "vlog -sv $pattern_gen_analyzer_exampel.sv"
+do compile.do
+# work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work work 
+# Modifying modelsim.ini
+# ./dpi
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:31:44 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi_interface.sv 
+# -- Compiling interface server_dpi_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:31:44 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:31:44 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_pkg.sv 
+# -- Compiling package server_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:31:44 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:31:44 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi.sv 
+# -- Compiling package server_dpi_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:31:44 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:31:44 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/Communication.sv 
+# -- Compiling package Communication_sv_unit
+# -- Importing package server_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:31:44 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:31:44 on May 29,2024
+# vlog -reportprogress 300 -sv $./pattern_gen_analyzer_exampel.sv 
+# ** Error: (vlog-7) Failed to open design unit file "$./pattern_gen_analyzer_exampel.sv" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 20:31:44 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/questasim64_2021.1/win64/vlog failed.
+# Error in macro ./compile.do line 22
+# C:/questasim64_2021.1/win64/vlog failed.
+#     while executing
+# "vlog -sv $./pattern_gen_analyzer_exampel.sv"
+do compile.do
+# work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work work 
+# Modifying modelsim.ini
+# ./dpi
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:32:02 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi_interface.sv 
+# -- Compiling interface server_dpi_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:32:02 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:32:02 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_pkg.sv 
+# -- Compiling package server_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:32:02 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:32:02 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi.sv 
+# -- Compiling package server_dpi_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:32:02 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:32:02 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/Communication.sv 
+# -- Compiling package Communication_sv_unit
+# -- Importing package server_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:32:02 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:32:02 on May 29,2024
+# vlog -reportprogress 300 -sv ./pattern_gen_analyzer_exampel.sv 
+# ** Error: (vlog-13069) ./pattern_gen_analyzer_exampel.sv(10): near "=": syntax error, unexpected '=', expecting ';'.
+# End time: 20:32:02 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/questasim64_2021.1/win64/vlog failed.
+# Error in macro ./compile.do line 22
+# C:/questasim64_2021.1/win64/vlog failed.
+#     while executing
+# "vlog -sv ./pattern_gen_analyzer_exampel.sv"
+do compile.do
+# work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work work 
+# Modifying modelsim.ini
+# ./dpi
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:34:30 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi_interface.sv 
+# -- Compiling interface server_dpi_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:34:30 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:34:30 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_pkg.sv 
+# -- Compiling package server_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:34:30 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:34:30 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi.sv 
+# -- Compiling package server_dpi_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:34:30 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:34:30 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/Communication.sv 
+# -- Compiling package Communication_sv_unit
+# -- Importing package server_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:34:30 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:34:30 on May 29,2024
+# vlog -reportprogress 300 -sv ./pattern_gen_analyzer_exampel.sv 
+# -- Compiling package pattern_gen_analyzer_exampel_sv_unit
+# -- Importing package server_pkg
+# -- Compiling module top
+# ** Error: ./pattern_gen_analyzer_exampel.sv(8): 'Communication' is an unknown type.
+# Or did you omit the '()' for an instantiation?
+# ** Error: ./pattern_gen_analyzer_exampel.sv(16): 'comm' is not a variable
+# ** Error: ./pattern_gen_analyzer_exampel.sv(16): Illegal LHS of assignment.
+# ** Error: ./pattern_gen_analyzer_exampel.sv(16): 'new' must be used to assign to a class or covergroup handle.
+# End time: 20:34:30 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 0
+# ** Error: C:/questasim64_2021.1/win64/vlog failed.
+# Error in macro ./compile.do line 22
+# C:/questasim64_2021.1/win64/vlog failed.
+#     while executing
+# "vlog -sv ./pattern_gen_analyzer_exampel.sv"
+do compile.do
+# work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work work 
+# Modifying modelsim.ini
+# ./dpi
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:53:41 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi_interface.sv 
+# -- Compiling interface server_dpi_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:53:41 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:53:41 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_pkg.sv 
+# -- Compiling package server_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:53:41 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:53:41 on May 29,2024
+# vlog -reportprogress 300 -sv ./dpi/server_dpi.sv 
+# -- Compiling package server_dpi_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 20:53:41 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 20:53:41 on May 29,2024
+# vlog -reportprogress 300 -sv ./pattern_gen_analyzer_exampel.sv 
+# -- Compiling package pattern_gen_analyzer_exampel_sv_unit
+# -- Importing package server_pkg
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# End time: 20:53:41 on May 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# ** Error (suppressible): (vlog-1902) Option "-cflags" is not a valid option for this tool.
+# Use the -help option for complete vlog usage.
+# Errors: 1, Warnings: 0
+# ** Error: C:/questasim64_2021.1/win64/vlog failed.
+# Error in macro ./compile.do line 24
+# C:/questasim64_2021.1/win64/vlog failed.
+#     while executing
+# "vlog -ccflags "-I/usr/include" -cflags "-fPIC" -LDFLAGS "-shared" -sv_lib $srcdir/server"
