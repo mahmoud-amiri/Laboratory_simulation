@@ -7,40 +7,49 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../submodules'))
 from submodules.socket.python.server import Server
 
 CHUNK_SIZE = 1024  # Size of each chunk in bytes
-
+VIDEO_WIDTH = 100
+VIDEO_HEIGHT = 100
 class EnhancedServer(Server):
     def send_large_data(self, data):
         serialized_data = json.dumps(data)
+        print(f"len(serialized_data) = {len(serialized_data)}")
         num_chunks = ceil(len(serialized_data) / CHUNK_SIZE)
+        print(f"num_chunks = {num_chunks}")
         for i in range(num_chunks):
             chunk = serialized_data[i * CHUNK_SIZE:(i + 1) * CHUNK_SIZE]
             self.send_data({"chunk": chunk, "index": i, "total": num_chunks})
+            print(f"chunk number {i} is sent")
+            data = self.receive_data()
+            print(f"server answered : {data}")
 
-    def receive_large_data(self):
-        partial_data = {}
-        total_chunks = {}
-        received_chunks = {}
-        
-        while True:
+
+    def receive_large_data(self, max_attempts=100000):
+        partial_data = ""
+        attempts = 0
+
+        while attempts < max_attempts:
+            print(f"attempts = {attempts}")
             chunk = self.receive_data()
             if chunk:
-                chunk_data = chunk["chunk"]
-                index = chunk["index"]
-                total = chunk["total"]
+                chunk_data = chunk.get("chunk", "")
+                index = chunk.get("index", 0)
+                total = chunk.get("total", 0)
+                self.send_data({"data": f" chunk {index}/{total-1} received successfully"}) 
+                print(f"index = {index} / total = {total-1}")
+                partial_data += chunk_data
 
-                if index == 0:
-                    partial_data[chunk["name"]] = chunk_data
-                    received_chunks[chunk["name"]] = 1
-                    total_chunks[chunk["name"]] = total
-                else:
-                    partial_data[chunk["name"]] += chunk_data
-                    received_chunks[chunk["name"]] += 1
+                if index + 1 == total:
+                    print("Last chunk received")
+                    # Last chunk received
+                    try:
+                        return json.loads(partial_data)
+                    except json.JSONDecodeError as e:
+                        print(f"Failed to parse complete data: {e}")
+                        return None
+            attempts += 1
 
-                if received_chunks[chunk["name"]] == total_chunks[chunk["name"]]:
-                    complete_data = partial_data.pop(chunk["name"])
-                    received_chunks.pop(chunk["name"])
-                    total_chunks.pop(chunk["name"])
-                    return json.loads(complete_data)
+        raise TimeoutError("Failed to receive all chunks within the maximum number of attempts")
+
 
 def communicate(server_gen, server_analyzer):
     try:
@@ -49,23 +58,41 @@ def communicate(server_gen, server_analyzer):
         config_gen = {
             "command": "CONFIG",
             "data": [
+                # {
+                #     "type": "SOLID_COLOR",
+                #     "name": "solid_color1",
+                #     "color": [255, 0, 0],
+                #     "width": VIDEO_WIDTH,
+                #     "height": VIDEO_HEIGHT,
+                #     "duration": 10,
+                #     "frame_rate": 30
+                # },
+                # {
+                #     "type": "CHECKERBOARD",
+                #     "name": "checkerboard1",
+                #     "width": VIDEO_WIDTH,
+                #     "height": VIDEO_HEIGHT,
+                #     "square_size": 50,
+                #     "duration": 10,
+                #     "frame_rate": 30
+                # },
+                # {
+                #     "type": "COLOR_BARS",
+                #     "name": "colobar1",
+                #     "width": VIDEO_WIDTH,
+                #     "height": VIDEO_HEIGHT,
+                #     "duration": 10,
+                #     "frame_rate": 30
+                # },
                 {
-                    "type": "SOLID_COLOR",
-                    "name": "solid_color1",
-                    "color": [255, 0, 0],
-                    "width": 640,
-                    "height": 480,
-                    "duration": 10,
-                    "frame_rate": 30
-                },
-                {
-                    "type": "CHECKERBOARD",
-                    "name": "checkerboard1",
-                    "width": 640,
-                    "height": 480,
-                    "square_size": 50,
-                    "duration": 10,
-                    "frame_rate": 30
+                    "type": "MOVING_BOX",
+                    "name": "movingbox1",
+                    "width": VIDEO_WIDTH,
+                    "height": VIDEO_HEIGHT,
+                    "box_size": 10,
+                    "speed" : 10,
+                    "duration": 3,
+                    "frame_rate": 60
                 }
             ]
         }
@@ -73,37 +100,58 @@ def communicate(server_gen, server_analyzer):
         config_analyzer = {
             "command": "CONFIG",
             "data": [
-                {"name": "solid_color1"},
-                {"name": "checkerboard1"}
+                # {
+                #     "name": "solid_color1",
+                #     "width": VIDEO_WIDTH,
+                #     "height": VIDEO_HEIGHT
+                # },
+                # {
+                #     "name": "checkerboard1",
+                #     "width": VIDEO_WIDTH,
+                #     "height": VIDEO_HEIGHT
+                # },
+                # {
+                #     "name": "colobar1",
+                #     "width": VIDEO_WIDTH,
+                #     "height": VIDEO_HEIGHT
+                # },
+                {
+                    "name": "movingbox1",
+                    "width": VIDEO_WIDTH,
+                    "height": VIDEO_HEIGHT
+                }
             ]
         }
 
         # Send configuration to the pattern generator
-        server_gen.send_large_data(config_gen)
+        server_gen.send_data(config_gen)
         print("Config sent to pattern generator")
-        data_gen = server_gen.receive_large_data()
+        data_gen = server_gen.receive_data()
         if data_gen["config"] == "OK":
             print("Pattern generator configured successfully")
 
         # Send configuration to the video analyzer
-        server_analyzer.send_large_data(config_analyzer)
+        server_analyzer.send_data(config_analyzer)
         print("Config sent to video analyzer")
-        data_analyzer = server_analyzer.receive_large_data()
+        data_analyzer = server_analyzer.receive_data()
         if data_analyzer["config"] == "OK":
             print("Video analyzer configured successfully")
 
-        for _ in range(20):  # or while True:
-            for name in ["solid_color1", "checkerboard1"]:
+        while True:
+            for config in config_analyzer["data"]:
+                name = config["name"]
+                print(name)
                 frame_req = {"command": "GET_FRAME", "name": name}
-                server_gen.send_large_data(frame_req)
+                server_gen.send_data(frame_req)
                 data_gen = server_gen.receive_large_data()
+                print("frame received")
                 if data_gen and data_gen["frame"] is not None:
                     frame_data = {
                         "name": name,
                         "frame": data_gen["frame"]
                     }
                     server_analyzer.send_large_data(frame_data)
-                    data_analyzer = server_analyzer.receive_large_data()
+                    data_analyzer = server_analyzer.receive_data()
                     if data_analyzer["response"] == "FRAME_OK":
                         print(f"Frame for {name} processed by analyzer")
     except json.JSONDecodeError as json_err:
