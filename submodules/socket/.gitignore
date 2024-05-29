@@ -1,0 +1,3 @@
+# Ignore all files in client/build and server/build directories
+c/client/build/*
+c/server/build/*
