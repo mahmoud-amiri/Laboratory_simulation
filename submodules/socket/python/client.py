@@ -1,6 +1,6 @@
 import socket
 import json
-
+CHUNK_SIZE = 4096
 class Client:
     def __init__(self, port):
         self.host = socket.gethostname()
@@ -25,7 +25,7 @@ class Client:
     def handshake(self):
         try:
             self.client_socket.send("HELLO SERVER".encode('utf-8'))
-            data = self.client_socket.recv(1024).decode('utf-8')
+            data = self.client_socket.recv(CHUNK_SIZE).decode('utf-8')
             print(f"returned data = {data}")
             if data == "HELLO CLIENT":
                 self.client_socket.send("OK".encode('utf-8'))    
@@ -36,7 +36,7 @@ class Client:
 
     def send_data(self, data):
         try:
-            serialized_data = json.dumps(data)
+            serialized_data = json.dumps(data) + '\n'
             self.client_socket.send(serialized_data.encode('utf-8'))
         except Exception as e:
             print(f"An error occurred while sending data: {e}")
@@ -44,7 +44,7 @@ class Client:
 
     def receive_data(self):
         try:
-            data = self.client_socket.recv(1024).decode('utf-8')
+            data = self.client_socket.recv(CHUNK_SIZE).decode('utf-8')
             return json.loads(data)
         except Exception as e:
             print(f"An error occurred while receiving data: {e}")

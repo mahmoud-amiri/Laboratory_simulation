@@ -27,7 +27,9 @@ class VideoAnalyzer:
             self.channels[name] = {
                 "fig": plt.figure(),
                 "ax": None,
-                "im": None
+                "im": None,
+                "width": config["width"],
+                "height": config["height"]
             }
             self.channels[name]["ax"] = self.channels[name]["fig"].add_subplot(1, 1, 1)
             self.channels[name]["im"] = self.channels[name]["ax"].imshow(np.zeros((480, 640, 3), dtype=np.uint8))  # Initialize with a blank frame
@@ -40,54 +42,67 @@ class VideoAnalyzer:
         ax.figure.canvas.draw()
         ax.figure.canvas.flush_events()
 
-    def receive_large_data(self):
-        data_complete = False
-        while not data_complete:
+
+    def receive_large_data(self, max_attempts=100000):
+        partial_data = ""
+        attempts = 0
+
+        while attempts < max_attempts:
+            print(f"attempts = {attempts}")
             chunk = self.client.receive_data()
+            print(chunk)
             if chunk:
-                chunk_data = chunk["chunk"]
-                index = chunk["index"]
-                total = chunk["total"]
+                chunk_data = chunk.get("chunk", "")
+                index = chunk.get("index", 0)
+                total = chunk.get("total", 0)
+                self.client.send_data({"data": f" chunk {index}/{total-1} received successfully"}) 
+                print(f"index = {index} / total = {total-1}")
+                partial_data += chunk_data
 
-                if index == 0:
-                    self.partial_data[chunk["name"]] = chunk_data
-                    self.received_chunks[chunk["name"]] = 1
-                    self.total_chunks[chunk["name"]] = total
-                else:
-                    self.partial_data[chunk["name"]] += chunk_data
-                    self.received_chunks[chunk["name"]] += 1
+                if index + 1 == total:
+                    print("Last chunk received")
+                    # Last chunk received
+                    try:
+                        data = json.loads(partial_data)
+                        name = data.get("name", 0)
+                        return data, name
+                    except json.JSONDecodeError as e:
+                        print(f"Failed to parse complete data: {e}")
+                        return None
+            attempts += 1
 
-                if self.received_chunks[chunk["name"]] == self.total_chunks[chunk["name"]]:
-                    data_complete = True
-                    complete_data = self.partial_data.pop(chunk["name"])
-                    self.received_chunks.pop(chunk["name"])
-                    self.total_chunks.pop(chunk["name"])
-                    return complete_data, chunk["name"]
-        return None, None
+        raise TimeoutError("Failed to receive all chunks within the maximum number of attempts")
+
 
     def receive_frame(self):
         data, name = self.receive_large_data()
+        print (f"frame name  = {name}")
         if data:
-            response = json.loads(data)
-            if "command" in response and response["command"] == "CONFIG":
-                self.configure(response["data"])
-                self.client.send_data({"config": "OK"})  # Send acknowledgment after processing the configuration
-                print("I have sent the configuration ack")
+            print("if data:")
+            #response = json.loads(data)
+            response = data
+            if response["name"] in self.channels:
+                print("""if response["name"] in self.channels:""")
+                name = response["name"]
+                frame_data = response["frame"]
+                print("""frame_data = response["frame"]""")
+                frame = np.array(frame_data, dtype=np.uint8).reshape((self.channels[name]["width"], self.channels[name]["height"], 3))  # Assuming 640x480 RGB image
+                print(f"the channel {name} is updated")
+                self.update_frame(name, frame)
+                self.client.send_data({"response": "OK"})  # Send acknowledgment after processing the data
             else:
-                if response["name"] in self.channels:
-                    name = response["name"]
-                    frame_data = response["frame"]
-                    frame = np.array(frame_data, dtype=np.uint8).reshape((480, 640, 3))  # Assuming 640x480 RGB image
-                    print(f"the channel {name} is updated")
-                    self.update_frame(name, frame)
-                    self.client.send_data({"response": "OK"})  # Send acknowledgment after processing the data
-                else:
-                    self.client.send_data({"response": f"False channel {name}"})
+                self.client.send_data({"response": f"False channel {name}"})
 
     def start(self):
+        data = self.client.receive_data()
+        if data:
+            if "command" in data and data["command"] == "CONFIG":
+                self.configure(data["data"])
+                self.client.send_data({"config": "OK"})  # Send acknowledgment after processing the configuration
+                print("I have sent the configuration ack")
         plt.ion()  # Initialize interactive mode once
         try:
-            for i in range(20):  # while True:
+            while True:
                 print("Waiting for data...")
                 self.receive_frame()
                 plt.pause(0.0001)

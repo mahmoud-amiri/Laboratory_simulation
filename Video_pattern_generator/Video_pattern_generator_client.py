@@ -88,14 +88,19 @@ class VideoPatternGeneratorClient:
 
     def send_large_data(self, data):
         serialized_data = json.dumps(data)
+        print(f"len(serialized_data) = {len(serialized_data)}")
         num_chunks = ceil(len(serialized_data) / CHUNK_SIZE)
+        print(f"num_chunks = {num_chunks}")
         for i in range(num_chunks):
             chunk = serialized_data[i * CHUNK_SIZE:(i + 1) * CHUNK_SIZE]
             self.client.send_data({"chunk": chunk, "index": i, "total": num_chunks})
+            print(f"chunk number {i} is sent")
+            data = self.client.receive_data()
+            print(f"server answered : {data}")
 
     def communicate(self):
         try:
-            for i in range(20):  # while True:
+            while True:
                 request = self.client.receive_data()
                 if request:
                     print(f"Received request: {request}")

@@ -3,6 +3,7 @@ import json
 import signal
 import sys
 
+CHUNK_SIZE = 4096
 class Server:
     def __init__(self, port):
         self.host = socket.gethostname()
@@ -40,10 +41,10 @@ class Server:
 
     def handshake(self):
         try:
-            data = self.client_socket.recv(1024).decode('utf-8')
+            data = self.client_socket.recv(CHUNK_SIZE).decode('utf-8')
             if data == "HELLO SERVER":
                 self.client_socket.send("HELLO CLIENT".encode('utf-8'))
-                data = self.client_socket.recv(1024).decode('utf-8')
+                data = self.client_socket.recv(CHUNK_SIZE).decode('utf-8')
                 if data == "OK":
                     return True
             return False
@@ -74,7 +75,8 @@ class Server:
 
     def receive_data(self):
         try:
-            data = self.client_socket.recv(1024).decode('utf-8')
+            data = self.client_socket.recv(CHUNK_SIZE).decode('utf-8')
+            print(f"receive_data = {data}")
             return json.loads(data)
         except Exception as e:
             print(f"An error occurred while receiving data: {e}")
