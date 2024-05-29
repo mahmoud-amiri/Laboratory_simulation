@@ -1,0 +1,50 @@
+{
+  "command": "CONFIG",
+  "data": [
+    {
+      "type": "SINE",
+      "name": "sine1",
+      "frequency": 1000,
+      "amplitude": 1,
+      "phase": 0,
+      "duration": 1,
+      "sampling_rate": 10000
+    },
+    {
+      "type": "COSINE",
+      "name": "cosine1",
+      "frequency": 1000,
+      "amplitude": 1,
+      "phase": 0,
+      "duration": 1,
+      "sampling_rate": 10000
+    },
+    {
+      "type": "SQUARE",
+      "name": "square1",
+      "frequency": 1000,
+      "amplitude": 1,
+      "phase": 0,
+      "duration": 1,
+      "sampling_rate": 10000
+    },
+    {
+      "type": "TRIANGLE",
+      "name": "triangle1",
+      "frequency": 1000,
+      "amplitude": 1,
+      "phase": 0,
+      "duration": 1,
+      "sampling_rate": 10000
+    },
+    {
+      "type": "SAWTOOTH",
+      "name": "sawtooth1",
+      "frequency": 1000,
+      "amplitude": 1,
+      "phase": 0,
+      "duration": 1,
+      "sampling_rate": 10000
+    }
+  ]
+}

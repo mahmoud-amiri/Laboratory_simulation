@@ -1,4 +1,6 @@
 {
   "port_signal_gen": 5003,
-  "port_oscilloscope": 5004
+  "port_oscilloscope": 5004,
+  "port_pattern_gen": 5005,
+  "port_analyzer": 5006
 }

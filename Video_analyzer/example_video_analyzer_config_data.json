@@ -1,0 +1,11 @@
+{
+  "command": "CONFIG",
+  "data": [
+    {
+      "name": "channel1"
+    },
+    {
+      "name": "channel2"
+    }
+  ]
+}
